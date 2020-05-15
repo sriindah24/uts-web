@@ -17,10 +17,17 @@ Route::get('/', function () {
 
 Route::resource('barang','BarangController');
 Auth::routes();
-
 Route::get('/home', 'BarangController@index')->name('home');
 
 
 Route::resource('ppl','PplController');
 Auth::routes();
 Route::get('/ppl', 'PplController@index')->name('home');
+
+Route::resource('gudang','GudangController');
+Auth::routes();
+Route::get('/tampilgudang', 'GudangController@index')->name('tampilgudang');
+
+Route::resource('penjualan','penjualanController');
+Auth::routes();
+Route::get('/tampilpenjualan', 'PenjualanController@index')->name('tampilpenjualan');

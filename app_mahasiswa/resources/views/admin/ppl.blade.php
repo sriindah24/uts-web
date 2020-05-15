@@ -4,7 +4,7 @@
 <div class="panel">
        <div class="panel-body">
             <div class=col-lg-12>
-                <h3>Daftar untuk PPL</h3>
+                <h3>Member</h3>
                 <br></br>
                  <table class="table bordered">
                      <tr>
