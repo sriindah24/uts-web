@@ -1,12 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Barang;
+use App\Penjual;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
-
-class BarangController extends Controller
+class PenjualController extends Controller
 {
     public function __construct()
     {
@@ -23,15 +21,12 @@ class BarangController extends Controller
      */
     public function index()
     {
-        //
-        $title='Barang';
-        $barang = Barang::paginate(10);
-        //$barang = DB::where('barang','id_gudang')->first();
-        
-        //dd($barang);
-        return view('admin.barang',compact('title','barang'));
+        $title='Penjual';
+        $penjual = Penjual::paginate(5);
+       //$barang = DB::where('barang','id_gudang')->first();
        
-    
+       //dd($gudang);
+       return view('admin.penjual',compact('title','penjual'));
     }
 
     /**
@@ -42,10 +37,10 @@ class BarangController extends Controller
     public function create()
     {
         //
-        $title='Input Barang';
-        //$barang=Barang::paginate(5);
+        $title='Input Penjual';
+        //$penjualan=Penjualan::paginate(5);
         //dd($barang);
-        return view('admin.inputbarang',compact('title','barang'));
+        return view('admin.inputpenjual',compact('title','penjual'));
     }
 
     /**
@@ -63,12 +58,15 @@ class BarangController extends Controller
             'numeric'=>'Kolom: attribute harus lengkap',
         ];
         $validasi = $request->validate([
-            'kode_barang'=>'required',
-            'nama_barang'=>'required',
-            'stok'=>'',
+            
+            'nama_penjual'=>'required',
+            'alamat'=>'required',
+            'no_hp'=>'required',
+            
+            
         ],$messages);
-        Barang::create($validasi);
-        return redirect('barang')->with('succes','Data berhasil diupdate');
+        Penjual::create($validasi);
+        return redirect('penjual')->with('succes','Data berhasil diupdate');
     }
 
     /**
@@ -90,10 +88,10 @@ class BarangController extends Controller
      */
     public function edit($id)
     {
+        $title='Edit Penjual';
+        $penjual= Penjual::find($id);
+          return view('admin.inputpenjual',compact('title','penjual'));
         //
-        $title='Input Barang';
-        $barang= Barang::find($id);
-          return view('admin.inputbarang',compact('title','barang'));
     }
 
     /**
@@ -106,18 +104,21 @@ class BarangController extends Controller
     public function update(Request $request, $id)
     {
         //
+        
         $messages = [
             'required'=>'Kolom: attribute harus lengkap',
             'date'=>'Kolom: attribute harus tanggal',
             'numeric'=>'Kolom: attribute harus lengkap',
         ];
         $validasi = $request->validate([
-            'kode_barang'=>'required',
-            'nama_barang'=>'required',
-            'stok'=>'',
+            
+            'nama_penjual'=>'required',
+            'alamat'=>'required',
+            'no_hp'=>'required',
+            
         ],$messages);
-        Barang::whereid_barang($id)->update($validasi);
-        return redirect('barang')->with('succes','Data berhasil diupdate');
+        Penjual::whereid_penjual($id)->update($validasi);
+        return redirect('penjual')->with('succes','Data berhasil diupdate');
     }
 
     /**
@@ -128,10 +129,8 @@ class BarangController extends Controller
      */
     public function destroy($id)
     {
-        Barang::whereid_barang($id)->delete();
-        return redirect('barang')->with('succes','Data berhasil diupdate');   
         //
+        Penjual::whereid_penjual($id)->delete();
+        return redirect('penjual')->with('succes','Data berhasil diupdate');
     }
 }
-
-

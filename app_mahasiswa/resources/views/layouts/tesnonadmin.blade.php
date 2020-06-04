@@ -106,60 +106,27 @@
                       <h1 class="animated fadeInLeft">21:00</h1>
                       <p class="animated fadeInRight">Sat,October 1st 2029</p>
                     </li>
+                    <li class=" ripple">
+                      <a class="tree-toggle nav-header"><span class="fa-box"></span>
+                      <a href="{{route('home')}}">Home</a>
+                        <span class="fa-angle-right fa right-arrow text-right"></span>
+                      </a>                      
+                    </li>
                     <li class="ripple">
                       <a class="tree-toggle nav-header"><span class="fa-box"></span>
-                      <a href="{{route('barang.index')}}">Barang</a>
+                      <a href="{{route('nonbarang')}}">Barang</a>
                         <span class="fa-angle-right fa right-arrow text-right"></span>
                       </a>                      
                     </li>
-                    <li class="ripple">
-                      <a class="tree-toggle nav-header">
-                        <span class="fa -female"></span>
-                        <a href="{{route('penjual.index')}}">Penjual</a> 
-                        <span class="fa-angle-right fa right-arrow text-right"></span>
-                      </a>                      
-                    </li>
+                     
                     <li class="ripple">
                       <a class="tree-toggle nav-header">
                         <span class="fa-people"></span>
-                        <a href="{{route('pembeli.index')}}"> Pembeli</a> 
+                        <a href="{{route('nonadminpembeli')}}">Pembeli</a> 
                         <span class="fa-angle-right fa right-arrow text-right"></span>
                       </a>                      
                     </li>
-                    <li class="ripple"><a class="tree-toggle nav-header">
-                    <span class="fa fa-"></span>
-                    <a href="{{route('supplier.index')}}">Supplier</a> 
-                    <span class="fa-angle-right fa right-arrow text-right"></span> </a>                      
-                    </li>
-                    <li class="ripple"><a class="tree-toggle nav-header">
-                    <span class="fa fa-store"></span>
-                    <a href="{{route('gudang.index')}}">Gudang</a> 
-                    <span class="fa-angle-right fa right-arrow text-right"></span> </a>
-                      
-                    </li>
-                    <li class="ripple"><a class="tree-toggle nav-header">
-                    <span class="fa fa"></span>
-                    <a href="{{route('pembelian.index')}}">Pembelian</a>
-                    <span class="fa-angle-right fa right-arrow text-right"></span> </a>
-                      
-                    </li>
-                    <li class="ripple"><a href="calendar.html">
-                    <span class="fa fa"></span>
-                    <a href="{{route('penjualan.index')}}">Penjualan</a>
-                    <span class="fa-angle-right fa right-arrow text-right"></span></a>
-                    </li>          
-                    <li class="ripple"><a class="tree-toggle nav-header">
-                    <span class="fa fa-"></span>
-                    <a href="{{route('detailpembelian.index')}}">Detail Pembelian</a> 
-                    <span class="fa-angle-right fa right-arrow text-right"></span> </a>
-                    </li>
-                    <li class="ripple"><a class="tree-toggle nav-header">
-                    <span class="fa fa-"></span>
-                    <a href="{{route('detailpenjualan.index')}}">Detail Penjualan</a> 
-                    <span class="fa-angle-right fa right-arrow text-right"></span> </a>
-                    </li>
                    
-                  </ul>
                 </div>
             </div>
           <!-- end: Left Menu -->

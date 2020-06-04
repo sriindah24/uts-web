@@ -1,21 +1,21 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Barang;
+use App\Supplier;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 
-class BarangController extends Controller
+class SupplierController extends Controller
 {
-    public function __construct()
+     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware(function($request,$next){
-            if(Gate::allows('admin'))return $next($request);
+        $this->middleware(function($request, $next){
+            if(Gate::allows('admin')) return $next($request);
             abort(403, 'Anda tidak memiliki cukup hak akses');
         });
     }
+    
     /**
      * Display a listing of the resource.
      *
@@ -23,15 +23,11 @@ class BarangController extends Controller
      */
     public function index()
     {
+        $title='Supplier';
+        $supplier=Supplier::paginate(5);
+        //dd($suplier);
+        return view('admin.supplier',compact('title','supplier'));
         //
-        $title='Barang';
-        $barang = Barang::paginate(10);
-        //$barang = DB::where('barang','id_gudang')->first();
-        
-        //dd($barang);
-        return view('admin.barang',compact('title','barang'));
-       
-    
     }
 
     /**
@@ -41,11 +37,9 @@ class BarangController extends Controller
      */
     public function create()
     {
+       $title='Input Supplier';
+        return view('admin.inputsupplier',compact('title','supplier'));
         //
-        $title='Input Barang';
-        //$barang=Barang::paginate(5);
-        //dd($barang);
-        return view('admin.inputbarang',compact('title','barang'));
     }
 
     /**
@@ -56,21 +50,22 @@ class BarangController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        $messages = [
-            'required'=>'Kolom: attribute harus lengkap',
-            'date'=>'Kolom: attribute harus tanggal',
-            'numeric'=>'Kolom: attribute harus lengkap',
+      $messages = [
+            'required'=> 'Kolom: atribute harus lengkap',
+            'date'=> 'Kolom: atribute harus Tanggal',
+            'numeric'=> 'Kolom: atribute harus Angka', 
         ];
         $validasi = $request->validate([
-            'kode_barang'=>'required',
-            'nama_barang'=>'required',
-            'stok'=>'',
+           
+            'nama_supplier'=>'required',
+            'alamat'=>'required',
+            'no_hp'=>'required',
         ],$messages);
-        Barang::create($validasi);
-        return redirect('barang')->with('succes','Data berhasil diupdate');
+        Supplier::create($validasi);
+        return redirect('supplier')->with('succses','Data berhasil diupdate');
+        //
     }
-
+    
     /**
      * Display the specified resource.
      *
@@ -90,10 +85,10 @@ class BarangController extends Controller
      */
     public function edit($id)
     {
+       $title='Input Supplier';
+        $supplier= Supplier::find($id);
+        return view('admin.inputsupplier',compact('title','supplier'));
         //
-        $title='Input Barang';
-        $barang= Barang::find($id);
-          return view('admin.inputbarang',compact('title','barang'));
     }
 
     /**
@@ -105,19 +100,20 @@ class BarangController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-        $messages = [
-            'required'=>'Kolom: attribute harus lengkap',
-            'date'=>'Kolom: attribute harus tanggal',
-            'numeric'=>'Kolom: attribute harus lengkap',
+      $messages = [
+            'required'=> 'Kolom: atribute harus lengkap',
+            'date'=> 'Kolom: atribute harus Tanggal',
+            'numeric'=> 'Kolom: atribute harus Angka', 
         ];
         $validasi = $request->validate([
-            'kode_barang'=>'required',
-            'nama_barang'=>'required',
-            'stok'=>'',
+            
+            'nama_supplier'=>'required',
+            'alamat'=>'required',
+            'no_hp'=>'required',
         ],$messages);
-        Barang::whereid_barang($id)->update($validasi);
-        return redirect('barang')->with('succes','Data berhasil diupdate');
+        Supplier::whereid_supplier($id)->update($validasi);
+        return redirect('supplier')->with('succses','Data berhasil diupdate');
+        //
     }
 
     /**
@@ -128,10 +124,8 @@ class BarangController extends Controller
      */
     public function destroy($id)
     {
-        Barang::whereid_barang($id)->delete();
-        return redirect('barang')->with('succes','Data berhasil diupdate');   
+      Supplier::whereid_supplier($id)->delete();
+        return redirect('supplier')->with('succses','Data berhasil diupdate');
         //
     }
 }
-
-

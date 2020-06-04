@@ -1,10 +1,10 @@
-@extends('layouts.tes')
+@extends('layouts.tesnonadmin')
 @section('content')
 
 <div class="panel">
        <div class="panel-body">
             <div class=col-lg-12>
-                <h3>Member</h3>
+                <h3>Kelompok</h3>
                 <br></br>
                  <table class="table bordered">
                      <tr>
@@ -12,11 +12,11 @@
                          <td width='300'><h4>Studi Kasus</h4></td>
                      </tr>
                      <tr>
-                         <td>Nama   : Ni Wayan Sri Indah Yani</td>
+                         <td>Nama   : Ni Wayan Sri Indah Yani; Nengah Ayu Vinka Anggareni; Nyoman Susi Astuti</td>
                          <td>Judul  : Sistem Manajemen Toko Kelontong</td>
                      </tr>
                      <tr rowspan='2'>
-                         <td>NIM   : 1815051094</td>
+                         <td>NIM   : 1815051094; 1815051073; 1815051113</td>
                          <td>Penjelasan: Sistem Manajemen Toko Kelontong merupakan sebuah gagasan untuk membuat sebuah manajemen toko baik itu manajemen dalam hal penjualan,pembelian maupun barang pada suatu toko kelontong</td>
                      </tr>
                      <tr>

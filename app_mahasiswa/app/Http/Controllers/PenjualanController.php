@@ -59,11 +59,11 @@ class PenjualanController extends Controller
             'numeric'=>'Kolom: attribute harus lengkap',
         ];
         $validasi = $request->validate([
-            'kode_penjualan'=>'required',
+            
             'tanggal_penjualan'=>'required',
             'jenis_pembayaran'=>'required',
-            'id_penjual'=>'',
-            'id_pembeli'=>'',
+            'id_penjual'=>'required',
+            'id_pembeli'=>'required',
             
         ],$messages);
         Penjualan::create($validasi);
@@ -111,11 +111,11 @@ class PenjualanController extends Controller
             'numeric'=>'Kolom: attribute harus lengkap',
         ];
         $validasi = $request->validate([
-            'kode_penjualan'=>'required',
+            
             'tanggal_penjualan'=>'required',
             'jenis_pembayaran'=>'required',
-            'id_penjual'=>'',
-            'id_pembeli'=>'',
+            'id_penjual'=>'required',
+            'id_pembeli'=>'required',
             
         ],$messages);
         Penjualan::whereid_penjualan($id)->update($validasi);
